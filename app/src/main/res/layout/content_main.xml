@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,10 +11,160 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="lab.acme.diciembre15.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    tools:showIn="@layout/app_bar_main"
+    android:background="@drawable/side_nav_bar">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/detail_icon"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:text="@string/lbl_pis"
+        android:fontFamily="sans-serif-condensed"
+        android:id="@+id/lbl_PIS"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_width="wrap_content"
+        android:textColor="@color/startColor"
+        android:textSize="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/lbl_D"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/pis_day"
+        android:text=" 125 "
+        tools:text=" XXX "
+        android:fontFamily="sans-serif-light"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="80dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_below="@+id/lbl_PIS"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text=" 12 "
+        tools:text=" XX "
+        android:fontFamily="sans-serif-light"
+        android:id="@+id/pis_hour"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="80dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_below="@+id/pis_day"
+        android:layout_alignEnd="@+id/pis_day" />
+
+    <TextView
+        android:text=" 45 "
+        tools:text=" XX "
+        android:fontFamily="sans-serif-light"
+        android:id="@+id/pis_minute"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="80dp"
+        android:textColor="@color/white"
+        android:layout_below="@+id/pis_hour"
+        android:layout_alignStart="@+id/pis_hour"
+        android:textStyle="bold" />
+
+    <TextView
+        android:text=" 23 "
+        tools:text=" XX "
+        android:fontFamily="sans-serif-light"
+        android:id="@+id/pis_second"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="80dp"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@+id/pis_minute"
+        android:layout_alignStart="@+id/pis_minute"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="#ffd5d5d5"
+
+        android:layout_above="@+id/pis_hour"
+        android:layout_marginLeft="110dp"
+        android:id="@+id/L4">
+
+    </View>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="#ffd5d5d5"
+
+        android:layout_marginLeft="140dp"
+        android:layout_alignBottom="@+id/pis_hour"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/L2">
+    </View>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="#ffd5d5d5"
+
+        android:layout_marginLeft="140dp"
+        android:layout_alignBottom="@+id/pis_minute"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/L3">
+    </View>
+
+    <TextView
+        android:text="D"
+        android:fontFamily="sans-serif-condensed"
+
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textColor="@color/startColor"
+        android:textSize="20dp"
+        android:background="@color/white"
+        android:id="@+id/lbl_D"
+        android:layout_above="@+id/pis_hour"
+        android:layout_alignStart="@+id/lbl_H" />
+
+    <TextView
+        android:text="H"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textColor="@color/startColor"
+        android:textSize="20dp"
+        android:background="@color/white"
+        android:id="@+id/lbl_H"
+        android:layout_above="@+id/L2"
+        android:layout_alignParentEnd="true" />
+    <TextView
+        android:text="M"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textColor="@color/startColor"
+        android:textSize="20dp"
+        android:background="@color/white"
+        android:id="@+id/lbl_M"
+        android:layout_above="@+id/L3"
+        android:layout_alignEnd="@+id/L3" />
+    <TextView
+        android:text="S"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:textSize="40dp"
+        android:id="@+id/lbl_S"
+        android:textStyle="bold"
+        android:layout_below="@+id/L3"
+        android:layout_toStartOf="@+id/pis_second"
+        android:layout_marginTop="56dp" />
 </RelativeLayout>
