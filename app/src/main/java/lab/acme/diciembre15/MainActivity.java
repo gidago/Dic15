@@ -1,6 +1,7 @@
 package lab.acme.diciembre15;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -147,8 +148,12 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.nav_img_spinner) {
+            // Handle the  action
+            Intent activityPis;
+            activityPis = new Intent(this, ActivityImageSpinner.class);
+            startActivity(activityPis);
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
