@@ -10,8 +10,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="lab.acme.diciembre15.ActivityImageSpinner"
-    tools:showIn="@layout/activity_activity_image_spinner">
+    tools:context=".CategoryImageSpinner"
+    tools:showIn="@layout/activity_category_selector">
     <android.support.design.widget.TextInputLayout
         android:id="@+id/category_text_input_layout"
         android:layout_width="238dp"
@@ -30,12 +30,13 @@
     </android.support.design.widget.TextInputLayout>
     <Spinner
         tools:text="John Doe"
-        android:id="@+id/track_edit_activity_type_icon"
+        android:id="@+id/spinner_category_type_icon"
         android:layout_height="wrap_content"
         android:layout_width="129dp"
         android:hint="Category"
         android:layout_alignTop="@+id/category_text_input_layout"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/category_text_input_layout" />
 </RelativeLayout>
 
 <!--

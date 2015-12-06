@@ -151,11 +151,14 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_img_spinner) {
             // Handle the  action
             Intent activityPis;
-            activityPis = new Intent(this, ActivityImageSpinner.class);
+            activityPis = new Intent(this, CategoryImageSpinner.class);
             startActivity(activityPis);
 
         } else if (id == R.id.nav_gallery) {
-
+            // Handle the  action
+            Intent activityInitialScreen;
+            activityInitialScreen = new Intent(this, ActivityInitialScreen.class);
+            startActivity(activityInitialScreen);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {

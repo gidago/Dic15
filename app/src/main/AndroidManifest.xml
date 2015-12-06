@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ActivityImageSpinner"
+            android:name=".CategoryImageSpinner"
             android:label="@string/title_activity_activity_image_spinner"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -27,6 +27,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="lab.acme.diciembre15.MainActivity" />
         </activity>
+        <activity android:name=".ActivityInitialScreen"></activity>
     </application>
 
 </manifest>

@@ -16,7 +16,7 @@ import lab.acme.diciembre15.R;
  *
  * @author apoorvn
  */
-public class ChooseActivityTypeImageAdapter extends BaseAdapter {
+public class ChooseCategoryTypeImageAdapter extends BaseAdapter {
 
     private final Context context;
     private final List<Integer> imageIds;
@@ -25,7 +25,7 @@ public class ChooseActivityTypeImageAdapter extends BaseAdapter {
     private final int padding;
     private int selected = -1;
 
-    public ChooseActivityTypeImageAdapter(
+    public ChooseCategoryTypeImageAdapter(
             Context context, List<Integer> imageIds, int width, int height, int padding) {
         this.context = context;
         this.imageIds = imageIds;
@@ -69,6 +69,7 @@ public class ChooseActivityTypeImageAdapter extends BaseAdapter {
             imageView.setBackgroundResource(R.drawable.list_selector_background_transition_holo_dark);
         } else {
             imageView.setBackgroundColor(Color.TRANSPARENT);
+            //imageView.setColorFilter(android.R.color.black);
 
         }
         imageView.setImageResource(imageIds.get(position));

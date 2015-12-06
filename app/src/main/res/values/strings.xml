@@ -16,65 +16,43 @@
         <item>Otros</item>
     </string-array>
 
-   <string name="activity_type_running"
-      translation_description="When entering an 'Activity type', in the auto-complete text box, the
+   <string name="activity_type_running" translation_description="When entering an 'Activity type', in the auto-complete text box, the
    completion suggestion for running.">
   running
   </string>
 
-  <string name="activity_type_1"
-      translation_description="When entering an 'Activity type', in the auto-complete text box, the
-   completion suggestion for running.">
-   running
-  </string>
-  <string name="activity_type_2"
-      translation_description="When entering an 'Activity type', in the auto-complete text box, the
-   completion suggestion for running.">
-   Viajes
-  </string>
-  <string name="activity_type_3"
-      translation_description="When entering an 'Activity type', in the auto-complete text box, the
-   completion suggestion for running.">
-   Hogar
-  </string>
-  <string name="activity_type_4"
-      translation_description="When entering an 'Activity type', in the auto-complete text box, the
-   completion suggestion for running.">
-   Trabajo
-  </string>
-  <string name="activity_type_5"
-      translation_description="When entering an 'Activity type', in the auto-complete text box, the
+  <string name="category_type_1" translation_description="When entering an 'Activity type', in the auto-complete text box, the
+   completion suggestion for running.">Viajes</string>
+  <string name="category_type_2" translation_description="When entering an 'Activity type', in the auto-complete text box, the
+   completion suggestion for running.">Hogar</string>
+  <string name="category_type_3" translation_description="When entering an 'Activity type', in the auto-complete text box, the
+   completion suggestion for running.">Trabajo</string>
+  <string name="category_type_4" translation_description="When entering an 'Activity type', in the auto-complete text box, the
+   completion suggestion for running.">Otros</string>
+  <string name="activity_type_5" translation_description="When entering an 'Activity type', in the auto-complete text box, the
    completion suggestion for running.">
    Otros
   </string>
-  <string name="activity_type_6"
-      translation_description="When entering an 'Activity type', in the auto-complete text box, the
+  <string name="activity_type_6" translation_description="When entering an 'Activity type', in the auto-complete text box, the
    completion suggestion for running.">
    running
   </string>
-  <string name="activity_type_7"
-      translation_description="When entering an 'Activity type', in the auto-complete text box, the
+  <string name="activity_type_7" translation_description="When entering an 'Activity type', in the auto-complete text box, the
    completion suggestion for running.">
    drive
   </string>
-  <string name="activity_type_8"
-      translation_description="When entering an 'Activity type', in the auto-complete text box, the
+  <string name="activity_type_8" translation_description="When entering an 'Activity type', in the auto-complete text box, the
    completion suggestion for running.">
    sky
   </string>
 
-    <string name="generic_cancel"
-        translation_description="The text on a button to say cancel.">
+    <string name="generic_cancel" translation_description="The text on a button to say cancel.">
     Cancel
   </string>
-<string name="generic_ok"
-    translation_description="The text on a button to say ok.">
+<string name="generic_ok" translation_description="The text on a button to say ok.">
     OK
   </string>
-    <string name="track_edit_activity_type_hint"
-        translation_description="In the page to edit a track, the hint in the 'Activity type' text field
-      when it is empty.">
-    Activity type
-  </string>
+    <string name="track_edit_activity_type_hint" translation_description="In the page to edit a track, the hint in the 'Activity type' text field
+      when it is empty.">Categorizar</string>
 
 </resources>

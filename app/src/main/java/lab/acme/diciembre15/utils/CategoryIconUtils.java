@@ -24,24 +24,24 @@ import lab.acme.diciembre15.R;
  *
  * @author Jimmy Shih
  */
-public class TrackIconUtils {
+public class CategoryIconUtils {
 
-    public static final String AIRPLANE = "AIRPLANE";
-    public static final String BIKE = "BIKE";
-    public static final String BOAT = "BOAT";
-    public static final String DRIVE = "DRIVE";
-    public static final String RUN = "RUN";
-    public static final String SKI = "SKI";
-    public static final String SNOW_BOARDING = "SNOW_BOARDING";
-    public static final String WALK = "WALK";
+    public static final String VIAJE = "VIAJE";
+    public static final String HOGAR = "HOGAR";
+    public static final String TRABAJO = "TRABAJO";
+    public static final String OTRO = "OTRO";
+//    public static final String AIRPLANE = "AIRPLANE";
+//    public static final String SNOW_BOARDING = "SNOW_BOARDING";
+//    public static final String BOAT = "BOAT";
+//    public static final String SKI = "SKI";
 
-    private static final int[] AIRPLANE_LIST = new int[] { R.string.activity_type_1,
-            R.string.activity_type_2, R.string.activity_type_3 };
-    /**    private static final int[] BIKE_LIST = new int[] { R.string.activity_type_biking,
-            R.string.activity_type_cycling, R.string.activity_type_dirt_bike,
-            R.string.activity_type_motor_bike, R.string.activity_type_mountain_biking,
-            R.string.activity_type_road_biking, R.string.activity_type_track_cycling };
-    private static final int[] BOAT_LIST = new int[] { R.string.activity_type_boat,
+
+    private static final int[] VIAJE_LIST = new int[] { R.string.category_type_1,
+            R.string.category_type_2, R.string.category_type_3};
+    private static final int[] HOGAR_LIST = new int[] { R.string.category_type_1,
+            R.string.category_type_2, R.string.category_type_3,
+            R.string.category_type_4};
+    /** private static final int[] BOAT_LIST = new int[] { R.string.activity_type_boat,
             R.string.activity_type_ferry, R.string.activity_type_motor_boating,
             R.string.activity_type_rc_boat };
     private static final int[] DRIVE_LIST = new int[] { R.string.activity_type_atv,
@@ -61,14 +61,14 @@ public class TrackIconUtils {
     private static final LinkedHashMap<String, Pair<Integer, Integer>> MAP = new LinkedHashMap<String, Pair<Integer, Integer>>();
 
     static {
-        MAP.put(RUN, new Pair<Integer, Integer>(R.string.activity_type_1, R.drawable.ic_category_3));
-        MAP.put(WALK, new Pair<Integer, Integer>(R.string.activity_type_2, R.drawable.ic_track_walk));
-        MAP.put(BIKE, new Pair<Integer, Integer>(R.string.activity_type_3, R.drawable.ic_track_bike));
-        MAP.put(DRIVE,new Pair<Integer, Integer>(R.string.activity_type_4, R.drawable.ic_track_drive));
-        MAP.put(SKI, new Pair<Integer, Integer>(R.string.activity_type_5, R.drawable.ic_track_ski));
-        MAP.put(SNOW_BOARDING, new Pair<Integer, Integer>(R.string.activity_type_6, R.drawable.ic_track_snow_boarding));
-        MAP.put(AIRPLANE,new Pair<Integer, Integer>(R.string.activity_type_7, R.drawable.ic_track_airplane));
-        MAP.put(BOAT, new Pair<Integer, Integer>(R.string.activity_type_8, R.drawable.ic_track_boat));
+        MAP.put(VIAJE, new Pair<Integer, Integer>(R.string.category_type_1, R.drawable.ic_category_1));
+        MAP.put(HOGAR, new Pair<Integer, Integer>(R.string.category_type_2, R.drawable.ic_category_2));
+        MAP.put(TRABAJO, new Pair<Integer, Integer>(R.string.category_type_3, R.drawable.ic_category_3));
+        MAP.put(OTRO,new Pair<Integer, Integer>(R.string.category_type_4, R.drawable.ic_no_category));
+      //  MAP.put(SKI, new Pair<Integer, Integer>(R.string.activity_type_5, R.drawable.ic_track_ski));
+      //  MAP.put(SNOW_BOARDING, new Pair<Integer, Integer>(R.string.activity_type_6, R.drawable.ic_track_snow_boarding));
+       //MAP.put(AIRPLANE,new Pair<Integer, Integer>(R.string.activity_type_7, R.drawable.ic_track_airplane));
+       // MAP.put(BOAT, new Pair<Integer, Integer>(R.string.activity_type_8, R.drawable.ic_track_boat));
     }
 
     private static final float[] REVERT_COLOR_MATRIX = { -1.0f, 0, 0, 0, 255, // red
@@ -77,7 +77,7 @@ public class TrackIconUtils {
             0, 0, 0, 1.0f, 0 // alpha
     };
 
-    private TrackIconUtils() {}
+    private CategoryIconUtils() {}
 
     /**
      * Gets the icon drawable.
@@ -99,10 +99,10 @@ public class TrackIconUtils {
      */
     public static int getIconActivityType(String iconValue) {
         if (iconValue == null || iconValue.equals("")) {
-            return R.string.activity_type_1;
+            return R.string.category_type_1;
         }
         Pair<Integer, Integer> pair = MAP.get(iconValue);
-        return pair == null ? R.string.activity_type_1 : pair.first;
+        return pair == null ? R.string.category_type_1 : pair.first;
     }
 
     /**
@@ -126,20 +126,20 @@ public class TrackIconUtils {
         if (activityType == null || activityType.equals("")) {
             return "";
         }
-        if (inList(context, activityType, AIRPLANE_LIST)) {
-            return AIRPLANE;
+        if (inList(context, activityType, VIAJE_LIST)) {
+            return VIAJE;
         }
-/**        if (inList(context, activityType, BIKE_LIST)) {
-            return BIKE;
+       if (inList(context, activityType, HOGAR_LIST)) {
+            return HOGAR;
         }
-        if (inList(context, activityType, BOAT_LIST)) {
+/**         if (inList(context, activityType, BOAT_LIST)) {
             return BOAT;
         }
         if (inList(context, activityType, DRIVE_LIST)) {
-            return DRIVE;
+            return OTRO;
         }
         if (inList(context, activityType, RUN_LIST)) {
-            return RUN;
+            return VIAJE;
         }
         if (inList(context, activityType, SKI_LIST)) {
             return SKI;
@@ -148,7 +148,7 @@ public class TrackIconUtils {
             return SNOW_BOARDING;
         }
         if (inList(context, activityType, WALK_LIST)) {
-            return WALK;
+            return HOGAR;
         }*/
         return "";
     }
@@ -171,7 +171,7 @@ public class TrackIconUtils {
                 ImageView imageView = convertView != null ? (ImageView) convertView
                         : new ImageView(getContext());
                 Bitmap source = BitmapFactory.decodeResource(
-                        context.getResources(), TrackIconUtils.getIconDrawable(getItem(position).toString()));
+                        context.getResources(), CategoryIconUtils.getIconDrawable(getItem(position).toString()));
                 imageView.setImageBitmap(source);
                 imageView.setPadding(4, 4, -4, -4);
                 return imageView;

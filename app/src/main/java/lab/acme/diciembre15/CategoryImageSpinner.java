@@ -1,6 +1,5 @@
 package lab.acme.diciembre15;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,52 +12,23 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import lab.acme.diciembre15.fragments.ChooseActivityTypeDialogFragment;
-import lab.acme.diciembre15.fragments.ChooseActivityTypeDialogFragment.ChooseActivityTypeCaller;
-import lab.acme.diciembre15.utils.TrackIconUtils;
+import lab.acme.diciembre15.fragments.ChooseCategoryTypeDialogFragment;
+import lab.acme.diciembre15.fragments.ChooseCategoryTypeDialogFragment.ChooseCategoryTypeCaller;
+import lab.acme.diciembre15.utils.CategoryIconUtils;
 
-public class ActivityImageSpinner extends AppCompatActivity implements ChooseActivityTypeCaller{
+public class CategoryImageSpinner extends AppCompatActivity implements ChooseCategoryTypeCaller {
 
     private EditText mCategory;
-
-    private Spinner activityTypeIcon;
-    public static final String DEFAULT_ACTIVITY_TYPE = "TestActivity";
-    public static String activityType = DEFAULT_ACTIVITY_TYPE;
-
+    private Spinner mCategoryTypeIcon;
     private String iconValue;
-
-    /**
-     * Activity types.
-     */
-    public enum ActivityType {
-        CYCLING, RUNNING, WALKING, INVALID
-    }
-
-    /**
-     * Gets the activity type.
-     *
-     * @param context the context
-     * @param activityType the activity type
-     */
-    public static ActivityType getActivityType(Context context, String activityType) {
-        if (activityType == null || activityType.equals("")) {
-            return ActivityType.INVALID;
-        }
-        if (TrackIconUtils.getIconValue(context, activityType).equals(TrackIconUtils.WALK)) {
-            return ActivityType.WALKING;
-        } else if (TrackIconUtils.getIconValue(context, activityType).equals(TrackIconUtils.RUN)) {
-            return ActivityType.RUNNING;
-        } else if (TrackIconUtils.getIconValue(context, activityType).equals(TrackIconUtils.BIKE)) {
-            return ActivityType.CYCLING;
-        }
-        return ActivityType.INVALID;
-    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_activity_image_spinner);
+        iconValue = "";
+
+        setContentView(R.layout.activity_category_selector);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -66,8 +36,7 @@ public class ActivityImageSpinner extends AppCompatActivity implements ChooseAct
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-               //         .setAction("Action", null).show();
+
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -85,36 +54,31 @@ public class ActivityImageSpinner extends AppCompatActivity implements ChooseAct
         // Spinner item selection Listener
         spinner.setOnItemSelectedListener(new CustomOnItemSelectedListener());
 */
-
-
-        activityTypeIcon = (Spinner) findViewById(R.id.track_edit_activity_type_icon);
-        // activityTypeIcon.setAdapter(TrackIconUtils.getIconSpinnerAdapter(this, iconValue));
-        activityTypeIcon.setAdapter(TrackIconUtils.getIconSpinnerAdapter(this, "AIRPLANE"));
-        activityTypeIcon.setOnTouchListener(new View.OnTouchListener() {
+        mCategoryTypeIcon = (Spinner) findViewById(R.id.spinner_category_type_icon);
+        mCategoryTypeIcon.setAdapter(CategoryIconUtils.getIconSpinnerAdapter(this, iconValue));
+        mCategoryTypeIcon.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                   // ChooseActivityTypeDialogFragment.newInstance(activityType.getText().toString()).show(
-                    ChooseActivityTypeDialogFragment.newInstance(mCategory.getText().toString()).show(
+                   // ChooseCategoryTypeDialogFragment.newInstance(activityType.getText().toString()).show(
+                    ChooseCategoryTypeDialogFragment.newInstance(mCategory.getText().toString()).show(
                             getSupportFragmentManager(),
-                            ChooseActivityTypeDialogFragment.CHOOSE_ACTIVITY_TYPE_DIALOG_TAG);
+                            ChooseCategoryTypeDialogFragment.CHOOSE_CATEGORY_TYPE_DIALOG_TAG);
                 }
                 return true;
             }
         });
-        activityTypeIcon.setOnKeyListener(new View.OnKeyListener() {
+        mCategoryTypeIcon.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {
-                    ChooseActivityTypeDialogFragment.newInstance(mCategory.getText().toString()).show(
+                    ChooseCategoryTypeDialogFragment.newInstance(mCategory.getText().toString()).show(
                             getSupportFragmentManager(),
-                            ChooseActivityTypeDialogFragment.CHOOSE_ACTIVITY_TYPE_DIALOG_TAG);
+                            ChooseCategoryTypeDialogFragment.CHOOSE_CATEGORY_TYPE_DIALOG_TAG);
                 }
                 return true;
             }
         });
-
-
     }
 
     /**
@@ -136,18 +100,15 @@ public class ActivityImageSpinner extends AppCompatActivity implements ChooseAct
         }
     }
 
-    private void setActivityTypeIcon(String value) {
+    private void setmCategoryTypeIcon(String value) {
         iconValue = value;
-        TrackIconUtils.setIconSpinner(activityTypeIcon, value);
+        CategoryIconUtils.setIconSpinner(mCategoryTypeIcon, value);
     }
 
     @Override
-    public void onChooseActivityTypeDone(String value, boolean hasNewWeight) {
-        /*if (!newWeight) {
-            newWeight = hasNewWeight;
-        }*/
-        setActivityTypeIcon(value);
-        mCategory.setText(getString(TrackIconUtils.getIconActivityType(value)));
+    public void onChooseCategoryTypeDone(String value) {
+        setmCategoryTypeIcon(value);
+        mCategory.setText(getString(CategoryIconUtils.getIconActivityType(value)));
     }
 
 
