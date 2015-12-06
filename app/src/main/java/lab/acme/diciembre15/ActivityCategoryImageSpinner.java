@@ -16,7 +16,7 @@ import lab.acme.diciembre15.fragments.ChooseCategoryTypeDialogFragment;
 import lab.acme.diciembre15.fragments.ChooseCategoryTypeDialogFragment.ChooseCategoryTypeCaller;
 import lab.acme.diciembre15.utils.CategoryIconUtils;
 
-public class CategoryImageSpinner extends AppCompatActivity implements ChooseCategoryTypeCaller {
+public class ActivityCategoryImageSpinner extends AppCompatActivity implements ChooseCategoryTypeCaller {
 
     private EditText mCategory;
     private Spinner mCategoryTypeIcon;

@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_img_spinner) {
             // Handle the  action
             Intent activityPis;
-            activityPis = new Intent(this, CategoryImageSpinner.class);
+            activityPis = new Intent(this, ActivityCategoryImageSpinner.class);
             startActivity(activityPis);
 
         } else if (id == R.id.nav_gallery) {
@@ -176,20 +176,13 @@ public class MainActivity extends AppCompatActivity
 
     public void calculo(){
 
-        //String dateStart = "21/11/2015 09:29:58";
         String dateStart = getCurrentDate("dd/MM/yyyy HH:mm:ss");
-        //String dateStop = "01/04/2016 00:00:00";
+        //Todo set in settings
         String dateStop =  "01/04/2016 00:00:00";
-
-        //Log.e(LOG_TAG, "===========================>>>> dateStar:   " + dateStart);
-        //Log.e(LOG_TAG, "===========================>>>> dateStop:   " + dateStop);
-
         //HH converts hour in 24 hours format (0-23), day calculation
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-
         Date d1;
         Date d2;
-
         try {
             d1 = format.parse(dateStart);
             d2 = format.parse(dateStop);
@@ -207,15 +200,10 @@ public class MainActivity extends AppCompatActivity
             mMinutesLeft.setText(String.format(" %02d ", diffMinutes));
             mSecondsLeft.setText(String.format(" %02d ", diffSeconds));
 
-            //salida = "( " + diffDays + " dias, " + diffHours + " horas, " + diffMinutes + " minutos, " + diffSeconds + " segundos."+ " )" ;
-            //mTitle.setText(salida);
-            //Log.e(LOG_TAG, "***diff dates: :   " + diffDays + " days, " + diffHours + " hours, " + diffMinutes + " minutes, " + diffSeconds + " seconds.");
-
-            //mTitle.invalidate();
-            mDiasLeft.invalidate();
-            mHoursLeft.invalidate();
-            mMinutesLeft.invalidate();
-            mSecondsLeft.invalidate();
+           // mDiasLeft.invalidate();
+           // mHoursLeft.invalidate();
+           // mMinutesLeft.invalidate();
+           // mSecondsLeft.invalidate();
 
         } catch (Exception e) {
             e.printStackTrace();

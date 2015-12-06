@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CategoryImageSpinner"
+            android:name=".ActivityCategoryImageSpinner"
             android:label="@string/title_activity_activity_image_spinner"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
